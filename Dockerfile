@@ -36,3 +36,6 @@ RUN \
 	echo $'#!/usr/bin/env nix-shell\n#!nix-shell --argstr type run -i bash /app/shell.nix\npoetry run "$@"' \
 	| tee /usr/local/bin/docker-entrypoint.sh \
 	&& chmod +x /usr/local/bin/docker-entrypoint.sh
+  
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
+CMD ["bash"]
